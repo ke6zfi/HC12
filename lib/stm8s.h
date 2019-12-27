@@ -123,6 +123,12 @@
 /* Clock */
 #define CLK_BASE_ADDRESS        0x50C0
 #define CLK_ICKR                _SFR_(CLK_BASE_ADDRESS + 0x00)
+#define CLK_ICKR_REGAH          5
+#define CLK_ICKR_LSIRDY         4
+#define CLK_ICKR_LSIEN          3
+#define CLK_ICKR_FHWU           2
+#define CLK_ICKR_HSIRDY         1
+#define CLK_ICKR_HSIEN          0
 #define CLK_ECKR                _SFR_(CLK_BASE_ADDRESS + 0x01)
 #define CLK_ECKR_HSERDY         1
 #define CLK_ECKR_HSEEN          0
@@ -159,6 +165,9 @@
 /* Auto-Wakeup */
 #define AWU_BASE_ADDRESS        0x50F0
 #define AWU_CSR                 _SFR_(AWU_BASE_ADDRESS + 0x00)
+#define AWU_CSR_AWUF            5
+#define AWU_CSR_AWUEN           4
+#define AWU_CSR_MSR             0
 #define AWU_APR                 _SFR_(AWU_BASE_ADDRESS + 0x01)
 #define AWU_TBR                 _SFR_(AWU_BASE_ADDRESS + 0x02)
 
@@ -350,7 +359,7 @@
 #define TIM1_OISR               _SFR_(TIM1_BASE_ADDRESS + 0x1F)
 
 /* TIM2 (mutually exclusive with TIM5) */
-#define TIM2_BASE_ADDRESS       5300
+#define TIM2_BASE_ADDRESS       0x5300
 #define TIM2_CR1                _SFR_(TIM2_BASE_ADDRESS + 0x00)
 #define TIM2_CR1_ARPE           7
 #define TIM2_CR1_OPM            3
@@ -438,7 +447,7 @@
 #define TIM4_ARR                _SFR_(TIM4_BASE_ADDRESS + 0x08)
 
 /* TIM5 (mutually exclusive with TIM2) */
-#define TIM5_BASE_ADDRESS       5300
+#define TIM5_BASE_ADDRESS       0x5300
 #define TIM5_CR1                _SFR_(TIM5_BASE_ADDRESS + 0x00)
 #define TIM5_CR1_ARPE           7
 #define TIM5_CR1_OPM            3
@@ -649,5 +658,6 @@
 #define enable_interrupts()     __asm__("rim");
 #define disable_interrupts()    __asm__("sim");
 #define nop()                   __asm__("nop");
+#define halt()                  __asm__("halt");
 
 #endif /* STM8S_H */
