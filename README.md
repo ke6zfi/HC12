@@ -1,14 +1,14 @@
-HC11 CC1101
+HC12 SI4463
 ==============
 
-This a conversion of the CC1101 Arduino Library for the HC11 module.
+Support for the HC12 module.
 
 
 Usage
 -----
 compile.sh to compile example.c
 
-flash.sh to burn image to HC11.
+flash.sh to burn image to HC12.
 
 see example.c on how to send and receive data.
 
@@ -31,12 +31,12 @@ Compiler used SDCC v3.8
 
 HARDWARE
 --------
-Writing the image file to HC11 requires a STLINK/V2 programmer.
+Writing the image file to HC12 requires a STLINK/V2 programmer.
 Connect RST,SWIM,GND,3.3V to programmer and use stm8flash to burn an ihx image file to the module.
 
 NOTE
 ----
-On fresh HC11 boards, you may need to unlock the module for writing. Use..
+On fresh HC12 boards, you may need to unlock the module for writing. Use..
 
 stm8flash -c stlinkv2 -p stm8s003f3 -u  
 
