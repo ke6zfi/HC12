@@ -2,12 +2,11 @@
 #include "stm8s.h"
 #include "gpio.h"
 #include "spi.h"
-#include "stm8s.h"
 #include "delay.h"
 
 void SPI_init() {
 
-	SPI_CR1 = 0b01111100;
+	SPI_CR1 = 0x14; //0b01111100;
 
 /* SPI_CR1 
 
@@ -48,7 +47,7 @@ Bit 0 CPHA: Clock phase (1)
 
 */
 
-	SPI_CR2 = 0b0000000;
+	SPI_CR2 = 0b0000001;
 
    /* SPI_CR2 
 7 	6 	5 	4 	3 	 2 	1 	0
@@ -97,6 +96,7 @@ value of the NSS pin is ignored.
 */
 //    SPI_CR1 = (1 << SPI_CR1_MSTR) | (1 << SPI_CR1_SPE) | (1 << SPI_CR1_BR1);
 //    SPI_CR2 = (1 << SPI_CR2_SSM) | (1 << SPI_CR2_SSI);// | (1 << SPI_CR2_BDM) | (1 << SPI_CR2_BDOE);
+	SPI_CR1 = 0x54;
 }
 
 uint8_t SPI_write(uint8_t data) {
